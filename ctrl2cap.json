@@ -12,12 +12,12 @@
     ],
     "installer": {
         "script": [
-            "sudo powershell -Command 'cd $dir; ctrl2cap /install'"
+            "sudo powershell -Command {cd $dir; ctrl2cap /install}"
         ]
     },
     "uninstaller": {
         "script": [
-            "sudo powershell -Command 'cd $dir; ctrl2cap /uninstall'"
+            "sudo powershell -Command {cd $dir; ctrl2cap /uninstall}"
         ]
     },
     "homepage": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap"
