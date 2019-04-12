@@ -13,15 +13,12 @@
     ],
     "installer": {
         "script": [
-            "sudo cmd /C \"cd $dir && ctrl2cap /install\" /Q"
+            "sudo cmd /Q /C \"cd $dir && ctrl2cap /install\""
         ]
     },
     "uninstaller": {
         "script": [
-            "sudo cmd /C \"cd $dir && ctrl2cap /uninstall\" /Q"
+            "sudo cmd /Q /C \"cd $dir && ctrl2cap /uninstall\""
         ]
-    },
-    "notes": [
-        "NOTE: 設定は再起動後に反映されます。"
-    ]
+    }
 }
