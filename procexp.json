@@ -1,7 +1,7 @@
 {
     "version": "16.22",
     "url": "https://download.sysinternals.com/files/ProcessExplorer.zip",
-    "hash": "75b1ce8d684d74e8560392b08b9826b5d6efeb48",
+    "hash": "d393f062091c4fcf720ce0cad56520a920ffcc9412cdc7941150e3bb3fc4fefa",
     "architecture": {
         "32bit": {
             "bin": "procexp.exe"
