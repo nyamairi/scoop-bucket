@@ -3,6 +3,7 @@
     "url": "https://download.sysinternals.com/files/Ctrl2Cap.zip",
     "hash": "2d8c06374da140beda79ac1940ab2b06a56a9af182dba70a6338313d768a2ac2",
     "bin": "ctrl2cap.exe",
+    "homepage": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap",
     "checkver": {
         "url": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap",
         "re": "Ctrl2Cap v(?<version>\\d+\\.\\d+)"
@@ -12,13 +13,15 @@
     ],
     "installer": {
         "script": [
-            "sudo powershell -Command {cd $dir; ctrl2cap /install}"
+            "sudo cmd /C \"cd $dir && ctrl2cap /install\" /Q"
         ]
     },
     "uninstaller": {
         "script": [
-            "sudo powershell -Command {cd $dir; ctrl2cap /uninstall}"
+            "sudo cmd /C \"cd $dir && ctrl2cap /uninstall\" /Q"
         ]
     },
-    "homepage": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap"
+    "notes": [
+        "NOTE: 設定は再起動後に反映されます。"
+    ]
 }
