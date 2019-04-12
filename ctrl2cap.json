@@ -1,0 +1,24 @@
+{
+    "version": "16.22",
+    "url": "https://download.sysinternals.com/files/Ctrl2Cap.zip",
+    "hash": "2d8c06374da140beda79ac1940ab2b06a56a9af182dba70a6338313d768a2ac2",
+    "bin": "ctrl2cap.exe",
+    "checkver": {
+        "url": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap",
+        "re": "Ctrl2Cap v(?<version>\\d+\\.\\d+)"
+    },
+    "depends": [
+        "sudo"
+    ],
+    "installer": {
+        "script": [
+            "sudo $dir\\ctrl2cap /install"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "sudo $dir\\ctrl2cap /uninstall"
+        ]
+    },
+    "homepage": "https://docs.microsoft.com/ja-jp/sysinternals/downloads/ctrl2cap"
+}
