@@ -26,7 +26,7 @@
     ],
     "post_install": [
         "Start-Process \"$dir\\sakura.exe\" -WindowStyle Hidden",
-        "do { start-sleep -m 10 } until ( Test-Path \"$dir\\sakura.ini.bak\" )",
+        "do { start-sleep -m 10 } until ( Select-String \"szVersion=$version\" \"$dir\\sakura.ini\" )",
         "Stop-Process -InputObject ( Get-Process -Name \"sakura\" )",
         "Remove-Item \"$persist_dir\\sakura.ini\" -Force",
         "sudo ln \"$dir\\sakura.ini\" \"$persist_dir\\sakura.ini\""
