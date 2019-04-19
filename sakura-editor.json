@@ -25,10 +25,9 @@
         "}"
     ],
     "post_install": [
-        "$process = Start-Process \"$dir\\sakura.exe\" -PassThru -WindowStyle Hidden",
+        "Start-Process \"$dir\\sakura.exe\" -WindowStyle Hidden",
         "do { start-sleep -m 10 } until ( Test-Path \"$dir\\sakura.ini.bak\" )",
-        "Stop-Process -InputObject $process",
-        "TASKKILL /IM sakura.exe /F",
+        "Stop-Process -InputObject ( Get-Process -Name \"sakura\" )",
         "Remove-Item \"$persist_dir\\sakura.ini\" -Force",
         "sudo ln \"$dir\\sakura.ini\" \"$persist_dir\\sakura.ini\""
     ]
