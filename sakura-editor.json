@@ -25,7 +25,7 @@
         "}"
     ],
     "post_install": [
-        "$process = Start-Process \"$dir\\sakura.exe\" -PassThru -WindowStyle Hidden",
+        "$process = Start-Process \"$dir\\sakura.exe\" -PassThru -WindowStyle Minimized",
         "do { start-sleep -m 10 } until ( Test-Path \"$dir\\sakura.ini.bak\" )",
         "$process.CloseMainWindow()",
         "do { start-sleep -m 10 } until ( Select-String \"szVersion=$version\" \"$dir\\sakura.ini\" )",
