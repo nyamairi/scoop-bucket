@@ -21,12 +21,14 @@
         "if ( Test-Path \"$persist_dir\\sakura.ini\" ) {",
         "  Copy-Item \"$persist_dir\\sakura.ini\" \"$dir\\sakura.ini\" -Force",
         "} else {",
-        "  \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\" | Out-File -Encoding ASCII -FilePath \"$dir\\sakura.ini\" -Force ",
+        "  \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\" | Out-File -Encoding ASCII -FilePath \"$dir\\sakura.ini\" -Force",
         "}"
     ],
     "post_install": [
-        "Stop-Process -InputObject (Start-Process \"$dir\\sakura.exe\" -PassThru)",
+        "$process = Start-Process \"$dir\\sakura.exe\" -PassThru -WindowStyle Hidden",
+        "do until ( Test-Path \"$dir\\sakura.ini.bak\" ) { start-sleep -m 10 } loop",
+        "Stop-Process -InputObject $process",
         "Remove-Item \"$persist_dir\\sakura.ini\" -Force",
-        "sudo ln \"$dir\\sakura.exe\" \"$persist_dir\\sakura.ini\""
+        "sudo ln \"$dir\\sakura.ini\" \"$persist_dir\\sakura.ini\""
     ]
 }
