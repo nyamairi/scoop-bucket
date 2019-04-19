@@ -13,9 +13,21 @@
     "persist": [
         "sakura.ini"
     ],
+    "depends": [
+        "ln",
+        "sudo"
+    ],
     "pre_install": [
-        "if (-Not(Test-Path \"$persist_dir\\sakura.ini\")) {",
+        "if ( Test-Path \"$persist_dir\\sakura.ini\" ) {",
+        "  Copy-Item \"$persist_dir\\sakura.ini\" \"$dir\\sakura.ini\" -Force",
+        "} else {",
         "  Out-File -Encoding ASCII -FilePath \"$dir\\sakura.ini\" -Force -InputObject \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\"",
         "}"
+    ],
+    "post_install": [
+        "\"$dir\\sakura.exe\"",
+        "TASKKILL /IM sakura.exe /F",
+        "Remove-Item \"$persist_dir\\sakura.ini\" -Force",
+        "sudo ln \"$dir\\sakura.exe\" \"$persist_dir\\sakura.ini\""
     ]
 }
