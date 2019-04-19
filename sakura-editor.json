@@ -14,8 +14,11 @@
         "touch",
         "ln"
     ],
+    "persist":  [
+        "ini"
+    ],
     "pre_install":  [
-        "touch $persist_dir/sakura.ini",
-        "ln $persist_dir/sakura.ini $dir/sakura.ini"
+        "touch $persist_dir/ini/sakura.ini",
+        "ln $persist_dir/ini/sakura.ini $dir/sakura.ini"
     ]
 }
