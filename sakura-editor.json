@@ -19,18 +19,18 @@
         "ini"
     ],
     "pre-install":  [
-        "IF EXIST \"$persist_dir/ini/sakura.ini\" (",
-        "COPY /Y $persist_dir/ini/sakura.ini $dir/sakura.ini",
+        "IF EXIST \"$persist_dir\\ini\\sakura.ini\" (",
+        "COPY /Y $persist_dir\\ini\\sakura.ini $dir\\sakura.ini",
         ") ELSE (",
-        "ECHO [Common]         >> $dir/sakura.ini",
-        "ECHO bTaskTrayStay=0  >> $dir/sakura.ini",
-        "ECHO bTaskTrayUse=0   >> $dir/sakura.ini",
-        "ECHO nFileShareMode=0 >> $dir/sakura.ini",
+        "ECHO [Common]         >> $dir\\sakura.ini",
+        "ECHO bTaskTrayStay=0  >> $dir\\sakura.ini",
+        "ECHO bTaskTrayUse=0   >> $dir\\sakura.ini",
+        "ECHO nFileShareMode=0 >> $dir\\sakura.ini",
         ")"
     ],
     "post-install": [
-        "IF NOT EXIST \"$persist_dir/ini/sakura.ini\" (",
-        "COPY /Y $dir/sakura.ini $persist_dir/ini/sakura.ini",
+        "IF NOT EXIST \"$persist_dir\\ini\\sakura.ini\" (",
+        "COPY /Y $dir\\sakura.ini $persist_dir\\ini\\sakura.ini",
         ")"
     ]
 }
