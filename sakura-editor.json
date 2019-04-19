@@ -2,7 +2,7 @@
     "version": "16.22",
     "url": "https://github.com/sakura-editor/sakura/releases/download/v2.3.2.0/sakura2-3-2-0.zip",
     "hash": "f767b65096c96decb1540a7b95ef07b8dc77e08732d8af12a3fdc84e4137f2b0",
-    "extract_dir":  "sakura2-3-2-0",
+    "extract_dir": "sakura2-3-2-0",
     "bin": "sakura.exe",
     "homepage": "https://github.com/sakura-editor/sakura",
     "checkver": "github",
@@ -10,27 +10,12 @@
         "url": "https://github.com/sakura-editor/sakura/releases/download/v$version/sakura$dashVersion.zip",
         "extract_dir": "sakura$dashVersion"
     },
-    "depends":  [
-        "ln",
-        "sudo",
-        "touch"
+    "persist": [
+        "sakura.ini"
     ],
-    "persist":  [
-        "ini"
-    ],
-    "pre_install":  [
-        "IF EXIST \"$persist_dir\\ini\\sakura.ini\" (",
-        "COPY /Y $persist_dir\\ini\\sakura.ini $dir\\sakura.ini",
-        ") ELSE (",
-        "ECHO [Common]         >> $dir\\sakura.ini",
-        "ECHO bTaskTrayStay=0  >> $dir\\sakura.ini",
-        "ECHO bTaskTrayUse=0   >> $dir\\sakura.ini",
-        "ECHO nFileShareMode=0 >> $dir\\sakura.ini",
-        ")"
-    ],
-    "post_install": [
-        "IF NOT EXIST \"$persist_dir\\ini\\sakura.ini\" (",
-        "COPY /Y $dir\\sakura.ini $persist_dir\\ini\\sakura.ini",
-        ")"
+    "pre_install": [
+        "if (-Not(Test-Path \"$persist_dir\\sakura.ini\")) {",
+        "  Out-File -Encoding ASCII -FilePath \"$persist_dir\\sakura.ini\" -Force -InputObject \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\"",
+        "}"
     ]
 }
