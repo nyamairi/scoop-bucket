@@ -11,14 +11,15 @@
         "extract_dir": "sakura$dashVersion"
     },
     "depends":  [
-        "touch",
-        "ln"
+        "ln",
+        "sudo",
+        "touch"
     ],
     "persist":  [
         "ini"
     ],
     "installer":  [
         "touch $persist_dir/ini/sakura.ini",
-        "ln $persist_dir/ini/sakura.ini $dir/sakura.ini"
+        "sudo ln $persist_dir/ini/sakura.ini $dir/sakura.ini"
     ]
 }
