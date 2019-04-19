@@ -15,7 +15,7 @@
     ],
     "pre_install": [
         "if (-Not(Test-Path \"$persist_dir\\sakura.ini\")) {",
-        "  Out-File -Encoding ASCII -FilePath \"$persist_dir\\sakura.ini\" -Force -InputObject \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\"",
+        "  Out-File -Encoding ASCII -FilePath \"$dir\\sakura.ini\" -Force -InputObject \"[Common]\nbTaskTrayStay=0\nbTaskTrayUse=0\nnFileShareMode=0\n\"",
         "}"
     ]
 }
