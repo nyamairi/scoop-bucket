@@ -10,6 +10,12 @@
         "url": "https://github.com/sakura-editor/sakura/releases/download/v$version/sakura$dashVersion.zip",
         "extract_dir": "sakura$dashVersion"
     },
+    "depends":  [
+        "touch"
+    ],
+    "pre_install":  [
+        "touch $dir/sakura.ini"
+    ],
     "persist": [
         "sakura.ini"
     ]
