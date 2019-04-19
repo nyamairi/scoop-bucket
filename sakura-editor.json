@@ -18,7 +18,7 @@
     "persist":  [
         "ini"
     ],
-    "installer":  [
+    "post-install":  [
         "touch $persist_dir/ini/sakura.ini",
         "sudo ln $persist_dir/ini/sakura.ini $dir/sakura.ini"
     ]
