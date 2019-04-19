@@ -18,7 +18,7 @@
     "persist":  [
         "ini"
     ],
-    "pre-install":  [
+    "pre_install":  [
         "IF EXIST \"$persist_dir\\ini\\sakura.ini\" (",
         "COPY /Y $persist_dir\\ini\\sakura.ini $dir\\sakura.ini",
         ") ELSE (",
@@ -28,7 +28,7 @@
         "ECHO nFileShareMode=0 >> $dir\\sakura.ini",
         ")"
     ],
-    "post-install": [
+    "post_install": [
         "IF NOT EXIST \"$persist_dir\\ini\\sakura.ini\" (",
         "COPY /Y $dir\\sakura.ini $persist_dir\\ini\\sakura.ini",
         ")"
