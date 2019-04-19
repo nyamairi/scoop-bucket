@@ -25,8 +25,8 @@
         "}"
     ],
     "post_install": [
-        "\"$dir\\sakura.exe\"",
-        "TASKKILL /IM sakura.exe /F",
+        "\\$process = Start-Process \"$dir\\sakura.exe\" -PassThru",
+        "Stop-Process -InputObject $process",
         "Remove-Item \"$persist_dir\\sakura.ini\" -Force",
         "sudo ln \"$dir\\sakura.exe\" \"$persist_dir\\sakura.ini\""
     ]
