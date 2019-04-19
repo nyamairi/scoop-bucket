@@ -1,0 +1,11 @@
+{
+    "version": "16.22",
+    "url": "https://github.com/sakura-editor/sakura/releases/download/v2.3.2.0/sakura2-3-2-0.zip",
+    "hash": "f767b65096c96decb1540a7b95ef07b8dc77e08732d8af12a3fdc84e4137f2b0",
+    "bin": "sakura.exe",
+    "homepage": "https://github.com/sakura-editor/sakura",
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/sakura-editor/sakura/releases/download/v$version/sakura$dashVersion.zip"
+    }
+}
